@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #f8f6f1;
+    --color-bg-subtle: #ede9e1;
+    --color-surface: #ffffff;
+    --color-surface-soft: #f4f0e8;
+    --color-text: #1e2324;
+    --color-muted: #525c5e;
+    --color-border: #ded8ce;
+    --color-border-strong: #9e978a;
+    --color-accent: #246563;
+    --color-accent-strong: #194d4b;
+    --color-accent-soft: #eaf2f1;
+    --color-accent-ink: #144240;
+    --color-on-accent: #ffffff;
+    --color-focus: #246563;
+    --color-warm: #82592a;
+    --color-warm-soft: #faf2e6;
+    --color-danger: #a13333;
+    --color-danger-soft: #fcedec;
+    --color-success: #286b47;
+    --color-success-soft: #eaf5ee;
+  }
+
+  html[data-theme='high-contrast'] {
+    --color-bg: #101314;
+    --color-bg-subtle: #191e20;
+    --color-surface: #1f2527;
+    --color-surface-soft: #293134;
+    --color-text: #ffffff;
+    --color-muted: #d4dcde;
+    --color-border: #859397;
+    --color-border-strong: #c8d2d5;
+    --color-accent: #38b2ac;
+    --color-accent-strong: #4fd1c5;
+    --color-accent-soft: #143837;
+    --color-accent-ink: #b2f5ea;
+    --color-on-accent: #101314;
+    --color-focus: #f6e05e;
+    --color-warm: #f6ad55;
+    --color-warm-soft: #38270c;
+    --color-danger: #fc8181;
+    --color-danger-soft: #3c1818;
+    --color-success: #68d391;
+    --color-success-soft: #123824;
+  }
+
+  html {
+    font-size: 17px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html[data-text-size='small'] {
+    font-size: 15px;
+  }
+
+  html[data-text-size='medium'] {
+    font-size: 17px;
+  }
+
+  html[data-text-size='large'] {
+    font-size: 20px;
+  }
+
+  body {
+    @apply min-h-screen bg-app-bg font-sans text-app-text antialiased;
+    letter-spacing: -0.01em;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-ink);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-sans font-semibold text-app-text tracking-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-xl border border-app-border bg-app-surface shadow-card;
+  }
+
+  .surface-soft {
+    @apply rounded-xl border border-app-border bg-app-surfaceSoft;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-lg border border-transparent bg-app-accent px-5 py-2.5 font-sans text-base font-semibold text-app-onAccent shadow-sm transition-all duration-150 hover:bg-app-accentStrong active:translate-y-px disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-lg border border-app-border bg-app-surface px-5 py-2.5 font-sans text-base font-medium text-app-text shadow-sm transition-all duration-150 hover:border-app-borderStrong hover:bg-app-surfaceSoft active:translate-y-px disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-[2.5rem] items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 font-sans text-sm font-medium text-app-muted transition-colors duration-150 hover:bg-app-bgSubtle hover:text-app-text disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .btn-danger {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-lg border border-app-danger bg-app-dangerSoft px-4 py-2 font-sans text-sm font-medium text-app-danger transition-colors duration-150 hover:bg-app-surface active:translate-y-px disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .btn-urgent {
+    @apply inline-flex min-h-[3.25rem] items-center justify-center gap-2.5 rounded-lg border border-app-danger bg-app-dangerSoft px-5 py-2.5 font-sans text-base font-semibold text-app-danger transition-all duration-150 hover:bg-app-danger hover:text-white active:translate-y-px disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .field-label {
+    @apply block font-sans text-xs font-semibold uppercase tracking-wider text-app-muted;
+  }
+
+  .text-field {
+    @apply w-full rounded-lg border border-app-border bg-app-surface px-4 py-3 font-sans text-base text-app-text placeholder:text-app-muted focus:border-app-accent focus:outline-none focus-visible:outline focus-visible:outline-[2px] focus-visible:outline-offset-1 focus-visible:outline-app-focus;
+  }
+
+  .select-field {
+    @apply min-h-[2.875rem] w-full rounded-lg border border-app-border bg-app-surface px-3 py-2 font-sans text-base text-app-text focus:border-app-accent focus:outline-none focus-visible:outline focus-visible:outline-[2px] focus-visible:outline-offset-1 focus-visible:outline-app-focus;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-app-border bg-app-bgSubtle px-2 py-0.5 font-sans text-xs font-medium text-app-muted;
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-4 z-50 -translate-y-24 rounded-lg border border-app-accentStrong bg-app-accent px-4 py-2.5 font-sans text-sm font-semibold text-app-onAccent shadow-lift transition-transform focus:translate-y-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html[data-reduced-motion='true'] *,
+html[data-reduced-motion='true'] *::before,
+html[data-reduced-motion='true'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-reduced-motion='true'] .speak-indicator span,
+html[data-reduced-motion='true'] .animate-speak-wave {
+  animation: none !important;
+  transform: none !important;
+}
+
+@media print {
+  header,
+  nav,
+  footer,
+  button {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

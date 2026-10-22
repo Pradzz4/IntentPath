@@ -1,0 +1,90 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        app: {
+          bg: 'var(--color-bg)',
+          bgSubtle: 'var(--color-bg-subtle)',
+          surface: 'var(--color-surface)',
+          surfaceSoft: 'var(--color-surface-soft)',
+          text: 'var(--color-text)',
+          muted: 'var(--color-muted)',
+          border: 'var(--color-border)',
+          borderStrong: 'var(--color-border-strong)',
+          accent: 'var(--color-accent)',
+          accentStrong: 'var(--color-accent-strong)',
+          accentSoft: 'var(--color-accent-soft)',
+          accentInk: 'var(--color-accent-ink)',
+          onAccent: 'var(--color-on-accent)',
+          focus: 'var(--color-focus)',
+          warm: 'var(--color-warm)',
+          warmSoft: 'var(--color-warm-soft)',
+          danger: 'var(--color-danger)',
+          dangerSoft: 'var(--color-danger-soft)',
+          success: 'var(--color-success)',
+          successSoft: 'var(--color-success-soft)',
+        },
+      },
+      fontFamily: {
+        sans: [
+          '"IBM Plex Sans"',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          'sans-serif',
+        ],
+        serif: [
+          'Newsreader',
+          'Georgia',
+          'Cambria',
+          '"Times New Roman"',
+          'serif',
+        ],
+        mono: [
+          '"IBM Plex Mono"',
+          'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'Consolas',
+          'monospace',
+        ],
+      },
+      boxShadow: {
+        subtle: '0 1px 2px 0 rgba(30, 35, 36, 0.04)',
+        card: '0 1px 3px 0 rgba(30, 35, 36, 0.06), 0 1px 2px -1px rgba(30, 35, 36, 0.04)',
+        'card-hover': '0 4px 12px -2px rgba(30, 35, 36, 0.08), 0 2px 4px -2px rgba(30, 35, 36, 0.04)',
+        editorial: '0 1px 3px 0 rgba(30, 35, 36, 0.05), 0 1px 2px -1px rgba(30, 35, 36, 0.03)',
+        tactile: '0 1px 2px 0 rgba(30, 35, 36, 0.08)',
+        'tactile-accent': '0 1px 2px 0 rgba(36, 101, 99, 0.2)',
+        lift: '0 8px 24px -4px rgba(30, 35, 36, 0.08), 0 4px 8px -2px rgba(30, 35, 36, 0.04)',
+      },
+      borderRadius: {
+        DEFAULT: '0.5rem',
+        sm: '0.25rem',
+        md: '0.375rem',
+        lg: '0.5rem',
+        xl: '0.75rem',
+        '2xl': '1rem',
+        none: '0',
+      },
+      keyframes: {
+        rise: {
+          '0%': { opacity: '0', transform: 'translateY(4px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'speak-wave': {
+          '0%, 100%': { transform: 'scaleY(0.35)' },
+          '50%': { transform: 'scaleY(1)' },
+        },
+      },
+      animation: {
+        rise: 'rise 160ms ease-out both',
+        'speak-wave': 'speak-wave 800ms ease-in-out infinite',
+      },
+    },
+  },
+  plugins: [],
+};
